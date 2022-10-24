@@ -78,7 +78,8 @@ class _OnscreenKeyboardWidgetState extends State<OnscreenKeyboardWidget> {
 
   void specialCharacters() {
     //
-    KeyboardShiftState state = BlocProvider.of<KeyboardShiftBloc>(context).state;
+    KeyboardShiftState state =
+        BlocProvider.of<KeyboardShiftBloc>(context).state;
     if (state is KeyboardShiftSymbols) {
       BlocProvider.of<KeyboardShiftBloc>(context)
           .add(KeyboardShiftUpperCaseEvent());
@@ -89,7 +90,8 @@ class _OnscreenKeyboardWidgetState extends State<OnscreenKeyboardWidget> {
   }
 
   void shift() {
-    KeyboardShiftState state = BlocProvider.of<KeyboardShiftBloc>(context).state;
+    KeyboardShiftState state =
+        BlocProvider.of<KeyboardShiftBloc>(context).state;
     if (state is KeyboardShiftUpperCase) {
       BlocProvider.of<KeyboardShiftBloc>(context)
           .add(KeyboardShiftLowerCaseEvent());
