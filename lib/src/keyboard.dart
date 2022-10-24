@@ -81,8 +81,13 @@ class _OnscreenKeyboardWidgetState extends State<OnscreenKeyboardWidget> {
     KeyboardShiftState state =
         BlocProvider.of<KeyboardShiftBloc>(context).state;
     if (state is KeyboardShiftSymbols) {
-      BlocProvider.of<KeyboardShiftBloc>(context)
-          .add(KeyboardShiftUpperCaseEvent());
+      if (widget.initialCase == InitialCase.LOWER_CASE) {
+        BlocProvider.of<KeyboardShiftBloc>(context)
+            .add(KeyboardShiftLowerCaseEvent());
+      } else {
+        BlocProvider.of<KeyboardShiftBloc>(context)
+            .add(KeyboardShiftUpperCaseEvent());
+      }
     } else {
       BlocProvider.of<KeyboardShiftBloc>(context)
           .add(KeyboardShiftSymbolsEvent());
